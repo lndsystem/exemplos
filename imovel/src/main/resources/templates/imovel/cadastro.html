@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Cadastro Imovel</title>
+</head>
+<body>
+	<a th:href="@{/}">Home</a> /
+	<a th:href="@{/imovel}">Pesquisar</a>
+	<hr />
+	<span th:if="${not #strings.isEmpty(mensagem)}" th:text="${mensagem}"></span>
+	<form th:action="@{/imovel/novo}" method="post" th:object="${imovel}">
+
+		<div>
+			Descricao: <input type="text" th:field="*{descricao}" />
+		</div>
+		<div>
+			Finalidade: <select th:field="*{finalidade}">
+				<option value="">Selecione...</option>
+				<option th:each="finalidade : ${finaliades}"
+					th:value="${finalidade.codigo}" th:text="${finalidade.nome}"></option>
+			</select>
+		</div>
+		<div>
+			Tipo: <select th:field="*{tipo}">
+				<option value="">Selecione...</option>
+				<option th:each="tipo : ${tipos}" th:value="${tipo.codigo}"
+					th:text="${tipo.nome}"></option>
+			</select>
+		</div>
+		<div>
+			Logradouro: <input type="text" th:field="*{logradouro}" />
+		</div>
+		<div>
+			Número: <input type="text" th:field="*{numero}" />
+		</div>
+		<div>
+			Bairro: <input type="text" th:field="*{bairro}" />
+		</div>
+		<div>
+			<input type="submit" value="Salvar" />
+		</div>
+	</form>
+</body>
+</html>

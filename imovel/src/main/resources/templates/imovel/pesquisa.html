@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Pesquisa de Imovel</title>
+</head>
+<body>
+	<a th:href="@{/}">Home</a> / <a th:href="@{/imovel/novo}">+Novo</a>
+	<hr/>
+	<table border="1">
+		<thead>
+			<tr>
+				<td>Código</td>
+				<td>Fidelidade</td>
+				<td>Tipo</td>
+				<td>Descrição</td>
+				<td>Logradouro</td>
+				<td>Número</td>
+				<td>Bairro</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="imovel : ${imoveis}">
+				<td th:text="${imovel.codigo}"></td>
+				<td th:text="${imovel.finalidade.nome}"></td>
+				<td th:text="${imovel.tipo.nome}"></td>
+				<td th:text="${imovel.descricao}"></td>
+				<td th:text="${imovel.logradouro}"></td>
+				<td th:text="${imovel.numero}"></td>
+				<td th:text="${imovel.bairro}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

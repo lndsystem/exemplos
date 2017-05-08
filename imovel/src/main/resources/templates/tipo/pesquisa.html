@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Pesquisa de Tipo</title>
+</head>
+<body>
+	<a th:href="@{/}">Home</a> / <a th:href="@{/tipo/novo}">+Novo</a>
+	<hr/>
+	<table border="1">
+		<thead>
+			<tr>
+				<td>Código</td>
+				<td>Tipo</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="tipo : ${tipos}">
+				<td th:text="${tipo.codigo}"></td>
+				<td th:text="${tipo.nome}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

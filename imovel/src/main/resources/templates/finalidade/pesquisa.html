@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Pesquisa de Finalidade</title>
+</head>
+<body>
+	<a th:href="@{/}">Home</a> / <a th:href="@{/finalidade/novo}">+Novo</a>
+	<hr/>
+	<table border="1">
+		<thead>
+			<tr>
+				<td>Código</td>
+				<td>Tipo</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="finalidade : ${finalidades}">
+				<td th:text="${finalidade.codigo}"></td>
+				<td th:text="${finalidade.nome}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

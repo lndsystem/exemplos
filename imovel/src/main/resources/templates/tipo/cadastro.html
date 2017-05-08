@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Cadastro Tipo</title>
+</head>
+<body>
+	<a th:href="@{/}">Home</a> / <a th:href="@{/tipo}">Pesquisar</a>
+	<hr />
+	<span th:if="${not #strings.isEmpty(mensagem)}" th:text="${mensagem}"></span>
+	<form th:action="@{/tipo/novo}" method="post" th:object="${tipo}">
+
+		<div>
+			Tipo: <input type="text" th:field="*{nome}" />
+		</div>
+		<div>
+			<input type="submit" value="Salvar" />
+		</div>
+	</form>
+</body>
+</html>
